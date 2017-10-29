@@ -100,7 +100,7 @@ export class AudioPlayer extends React.PureComponent {
               </div>
             </div>
             <div className='level-right'>
-              <div className='level-item'>
+              <div className='level-item time'>
                 <FormattedTime numSeconds={this.state.time} /> / <FormattedTime numSeconds={this.state.duration} />
               </div>
             </div>
