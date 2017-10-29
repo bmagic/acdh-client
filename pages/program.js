@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import moment from 'moment'
-
+import NoSSR from 'react-no-ssr'
 import Layout from 'components/Layout'
 import Meta from 'components/Meta'
 import Title from 'components/Title'
@@ -17,13 +17,10 @@ import { loadProgram } from 'actions/program'
 import { makeProgram } from 'selectors/program'
 
 class ProgramPage extends React.Component {
-  static getInitialProps ({ query: { id } }) {
+  static getInitialProps ({ store, query: { id } }) {
+    store.dispatch(loadProgram(id))
+
     return { id }
-  }
-  componentDidMount () {
-    if (this.props.id !== 'new') {
-      this.props.onLoadProgram(this.props.id)
-    }
   }
 
   render () {
@@ -37,7 +34,9 @@ class ProgramPage extends React.Component {
             title={program.get('title')} subtitle={moment(program.get('date')).format('DD/MM/YYYY')} />
           <section className='section'>
             <div className='container content'>
-              <AudioPlayer url={program.get('url')} />
+              <NoSSR>
+                <AudioPlayer url={program.get('url')} />
+              </NoSSR>
             </div>
             <div className='container' >
               <DescriptionText text={program.get('description')} />
@@ -52,9 +51,7 @@ class ProgramPage extends React.Component {
 }
 
 ProgramPage.propTypes = {
-  onLoadProgram: PropTypes.func,
-  program: PropTypes.object,
-  id: PropTypes.string
+  program: PropTypes.object
 }
 const mapStateToProps = createStructuredSelector({
   program: makeProgram()

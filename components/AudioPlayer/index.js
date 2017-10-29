@@ -45,6 +45,7 @@ export class AudioPlayer extends React.PureComponent {
     this._waveSurfer.on('audioprocess', (time) => {
       this.setState({time: time})
     })
+    if (this.props.url.length > 0) { this._waveSurfer.load(this.props.url) }
   }
 
   componentWillReceiveProps (nextProps) {

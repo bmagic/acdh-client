@@ -1,4 +1,4 @@
-import 'whatwg-fetch'
+import fetch from 'isomorphic-unfetch'
 
 /**
  * Parses the JSON returned by a network request
