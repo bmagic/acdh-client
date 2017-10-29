@@ -1,0 +1,7 @@
+{
+  "parser": "babel-eslint",
+  "globals": {
+    "fetch": false
+  },
+  "extends": ["standard", "standard-react"]
+}

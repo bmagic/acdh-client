@@ -1,0 +1,30 @@
+.audio-player{
+  position:relative;
+  progress{
+    width:100px;
+  }
+  wave{
+    background-color:#f9f9f9;
+  }
+  .TimeMarker{
+    margin-right:1rem;
+  }
+  .controlbar .button{
+    width:2.25em;
+  }
+  .loading-message{
+    display:none;
+  }
+  &.loading{
+    .loading-message{
+      display:block;
+      position:absolute;
+      top:40px;
+      text-align: center;
+      width:100%;
+      z-index: 3;
+      margin-left:0.75em;
+    }
+
+  }
+}
