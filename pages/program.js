@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import moment from 'moment'
-import dynamic from 'next/dynamic'
 
 import Layout from 'components/Layout'
 import Meta from 'components/Meta'
@@ -12,13 +11,10 @@ import Title from 'components/Title'
 import DescriptionText from 'components/DescriptionText'
 import Guests from 'components/Guests'
 import DownloadLinks from 'components/DownloadLinks'
+import AudioPlayer from 'components/AudioPlayer'
 
 import { loadProgram } from 'actions/program'
 import { makeProgram } from 'selectors/program'
-
-const AudioPlayer = dynamic(import('components/AudioPlayer'), {
-  ssr: false
-})
 
 class ProgramPage extends React.Component {
   static getInitialProps ({ query: { id } }) {

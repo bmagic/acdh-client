@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import WaveSurfer from 'wavesurfer.js'
 import classNames from 'classnames'
 
 import FormattedTime from 'components/FormattedTime'
@@ -20,7 +19,9 @@ export class AudioPlayer extends React.PureComponent {
   }
 
   componentDidMount () {
-    this._waveSurfer = new WaveSurfer({
+    const WaveSurfer = require('wavesurfer.js')
+
+    this._waveSurfer = WaveSurfer.create({
       container: '#waveform',
       waveColor: '#363636',
       progressColor: '#6a6a6a',
@@ -44,7 +45,6 @@ export class AudioPlayer extends React.PureComponent {
     this._waveSurfer.on('audioprocess', (time) => {
       this.setState({time: time})
     })
-    this._waveSurfer.init()
   }
 
   componentWillReceiveProps (nextProps) {
