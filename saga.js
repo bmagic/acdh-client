@@ -141,6 +141,13 @@ export function * getProgram (action) {
       credentials: 'include'
     })
     program.date = moment(program.date).format('YYYY-MM-DD')
+
+    if (program.replays) {
+      program.replays.forEach(function (replay, index) {
+        program.replays[index] = moment(replay).format('YYYY-MM-DD')
+      })
+    }
+
     yield put(loadProgramSuccess(fromJS(program)))
   } catch (err) {
     yield put(loadProgramError(err))
@@ -157,6 +164,11 @@ export function * putProgram (action) {
   let requestURL = `${process.env.BACKEND_URL}/programs`
   let data = action.data.toJS()
   data.date = new Date(data.date).getTime()
+  if (data.replays) {
+    data.replays.forEach(function (replay, index) {
+      data.replays[index] = new Date(replay).getTime()
+    })
+  }
   if (data._id) {
     requestURL += '/' + data._id
   }

@@ -7,6 +7,7 @@ import validate from './validate'
 import RenderField from 'components/RenderField'
 import RenderSubPrograms from 'components/RenderSubPrograms'
 import RenderGuests from 'components/RenderGuests'
+import RenderReplays from 'components/RenderReplays'
 
 let ProgramEditForm = (props) => {
   const { handleSubmit, invalid } = props
@@ -38,6 +39,9 @@ let ProgramEditForm = (props) => {
         </div>
         <div className='field'>
           <FieldArray name='guests' component={RenderGuests} />
+        </div>
+        <div className='field'>
+          <FieldArray name='replays' component={RenderReplays} />
         </div>
         <div className='level'>
           <div className='level-left' />

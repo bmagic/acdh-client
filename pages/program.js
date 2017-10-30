@@ -12,6 +12,7 @@ import DescriptionText from 'components/DescriptionText'
 import Guests from 'components/Guests'
 import DownloadLinks from 'components/DownloadLinks'
 import AudioPlayer from 'components/AudioPlayer'
+import Replays from 'components/Replays'
 
 import { loadProgram } from 'actions/program'
 import { makeProgram } from 'selectors/program'
@@ -41,7 +42,15 @@ class ProgramPage extends React.Component {
             <div className='container' >
               <DescriptionText text={program.get('description')} />
               <Guests guests={program.get('guests')} />
-              <DownloadLinks main={program.get('url')} links={program.get('subPrograms')} />
+              <hr />
+              <div className='columns'>
+                <div className='column'>
+                  <DownloadLinks main={program.get('url')} links={program.get('subPrograms')} />
+                </div>
+                <div className='column'>
+                  <Replays replays={program.get('replays')} />
+                </div>
+              </div>
             </div>
           </section>
         </div>
