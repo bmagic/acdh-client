@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Moment from 'react-moment'
 import Link from 'next/link'
+import generateUrl from 'utils/urlGenerator'
 
 import EditButton from 'containers/EditButton'
 
@@ -21,7 +22,7 @@ const ProgramLine = (props) => (
         <EditButton id={props.id} />
       </div>
       <div className='column  is-narrow'>
-        <a href={props.url}><i className='fa fa-download' /></a>
+        <a href={generateUrl(props.url)}><i className='fa fa-download' /></a>
       </div>
     </div>
   </div>

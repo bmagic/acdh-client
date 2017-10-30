@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import FormattedTime from 'components/FormattedTime'
+import generateUrl from 'utils/urlGenerator'
 
 import stylesheet from './style.scss'
 
@@ -45,11 +46,11 @@ export class AudioPlayer extends React.PureComponent {
     this._waveSurfer.on('audioprocess', (time) => {
       this.setState({time: time})
     })
-    if (this.props.url.length > 0) { this._waveSurfer.load(this.props.url) }
+    if (this.props.url.length > 0) { this._waveSurfer.load(generateUrl(this.props.url)) }
   }
 
   componentWillReceiveProps (nextProps) {
-    this._waveSurfer.load(nextProps.url)
+    this._waveSurfer.load(generateUrl(nextProps.url))
   }
 
   componentWillUnmount () {

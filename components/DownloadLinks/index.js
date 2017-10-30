@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import generateUrl from 'utils/urlGenerator'
+
 const DownloadLinks = (props) => {
   const links = props.links.map((link, index) => {
     let name
@@ -17,7 +19,7 @@ const DownloadLinks = (props) => {
     <div className='download-links content'>
       <h4>{props.links.size === 0 ? 'Lien' : 'Liens'} de téléchargement :</h4>
       <ul>
-        <li><a target='_blank' href={props.main}>Emission complète</a></li>
+        <li><a target='_blank' href={generateUrl(props.main)}>Emission complète</a></li>
         {links}
       </ul>
     </div>
