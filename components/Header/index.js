@@ -19,10 +19,13 @@ const Header = (props) => (
       </div>
       <div className='navbar-menu'>
         <div className='navbar-start'>
-          <Link href='/faq'>
+          <Link href='/'>
+            <a className={classNames('navbar-item', {'is-active': props.router.pathname === '/'})}>&Eacute;missions</a>
+          </Link>
+          <Link href={'/faq'}>
             <a className={classNames('navbar-item', {'is-active': props.router.pathname === '/faq'})}>FAQ</a>
           </Link>
-          <Link href='/roadmap'>
+          <Link href={'/roadmap'}>
             <a className={classNames('navbar-item', {'is-active': props.router.pathname === '/roadmap'})}>Feuille de route</a>
           </Link>
         </div>

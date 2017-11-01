@@ -18,7 +18,7 @@ class RoadmapPage extends React.Component {
                 <div className='column'>
                   <div className='content has-text-justified'>
                     <p>
-                    Le site ACDH.fr est construit en 3 versions : Alpha, Beta et Finale. Chacune d'entre elles marquent une étapes importante au niveau technique.
+                    Le site ACDH.fr est construit en 3 versions : Alpha, Beta et Finale. Chacune d'entre elles marque une étapes importante au niveau technique.
                     </p>
                     <h3>Alpha</h3>
                     <p>
@@ -29,17 +29,17 @@ class RoadmapPage extends React.Component {
                     </p>
                     <h3>Beta</h3>
                     <p>
-                      Avec l'arrivée de la version Beta, le site se dotera d'un moteur de recheche plus puissant. Cependant afin de pouvoir "nourrir" ce moteur de recherche, je vais lancer en parallèle la transcription des émissions.
+                      Avec l'arrivée de la version Beta, le site se dotera d'un moteur de recheche plus puissant. Afin de pouvoir "nourrir" ce moteur de recherche, je vais lancer en parallèle la transcription des émissions.
                     </p>
                     <p>
-                      Cette transcription en plus de permettre une meilleure indexation des émissions, permettra de les mettre à disposision des personnes sourdes et malentendantes. Je n'ai pas encore retenu de solution technique à la réalisation de cette transcription mais il est probable qu'elle est un coup important et qu'elle sera donc faite par étape.
+                      Cette transcription, en plus de permettre une meilleure indexation des émissions, permettra de les mettre à disposision des personnes sourdes et malentendantes. Je n'ai pas encore retenu de solution technique à la réalisation de cette transcription mais il est probable qu'elle ait un co&ucirc;t important et qu'elle sera donc faite par étape.
                     </p>
                     <h3>Version finale</h3>
                     <p>
-                      La version finale ne signifie pas la fin du développement du site. Elle représente ce que j'ai imaginée pour le site avant de commencer son développement.
+                      La version finale ne signifie pas la fin du développement du site. Elle représente ce que j'ai imaginé pour le site avant de commencer son développement.
                     </p>
                     <p>
-                      Cette version sera toujours enrichie des nouvelles fonctionnalités comme l'ajout de filtres
+                      Cette version sera toujours enrichie des nouvelles fonctionnalités comme l'ajout de filtres.
                     </p>
                   </div>
                 </div>
