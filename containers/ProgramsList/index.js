@@ -14,9 +14,14 @@ export class ProgramsList extends React.PureComponent {
   }
 
   render () {
-    const programLines = this.props.programs.map(function (program) {
-      return <ProgramLine key={program.get('_id')} id={program.get('_id')} title={program.get('title')} date={program.get('date')} url={program.get('url')} />
-    })
+    let programLines = []
+
+    if (this.props.programs) {
+      programLines = this.props.programs.map(function (program) {
+        return <ProgramLine key={program.get('_id')} id={program.get('_id')} title={program.get('title')}
+          date={program.get('date')} url={program.get('url')} />
+      })
+    }
 
     return (
       <div className='programs-list'>
