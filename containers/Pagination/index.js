@@ -2,9 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import PropTypes from 'prop-types'
+import Head from 'next/head'
 
 import {makePage, makeCount, makeLoading} from 'selectors/programs'
 import {pageChange} from 'actions/programs'
+
+import stylesheet from './style.scss'
 
 export class Pagination extends React.PureComponent {
   constructor (props) {
@@ -27,9 +30,12 @@ export class Pagination extends React.PureComponent {
     else {
       return (
         <nav className='pagination is-centered' role='navigation' aria-label='pagination'>
-          <button className='pagination-previous' disabled={this.props.page === 0} onClick={this.handlePrevClick}>Previous</button>
+          <Head>
+            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          </Head>
+          <button className='button is-small pagination-previous' disabled={this.props.page === 0} onClick={this.handlePrevClick}>Previous</button>
           <div className='pagination-list'>{this.props.page + 1} / {Math.trunc(this.props.totalCount / this.props.pageCount + 1)}</div>
-          <button className='pagination-next' disabled={this.props.page + 1 >= this.props.totalCount / this.props.pageCount} onClick={this.handleNextClick}>Next page</button>
+          <button className='button is-small pagination-next' disabled={this.props.page + 1 >= this.props.totalCount / this.props.pageCount} onClick={this.handleNextClick}>Next page</button>
         </nav>
       )
     }
