@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { createStructuredSelector } from 'reselect'
 import PropTypes from 'prop-types'
+import Head from 'next/head'
 
 import { resetSuccess } from 'actions/global'
 import { makeSuccess } from 'selectors/global'
@@ -26,7 +27,9 @@ export class SuccessMessage extends React.PureComponent {
       setTimeout(this.props.onResetSuccess, 5000)
       return (
         <div className='success-message column is-one-quarter'>
-          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          <Head>
+            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          </Head>
           <div onClick={this.props.onResetSuccess} className='notification is-success'>
             <button className='delete' />
             {SuccessMessage.translateSuccessMessage(this.props.success)}
