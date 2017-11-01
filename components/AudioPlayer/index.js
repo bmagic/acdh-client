@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import Head from 'next/head'
 
 import FormattedTime from 'components/FormattedTime'
 import generateUrl from 'utils/urlGenerator'
@@ -87,7 +88,9 @@ export class AudioPlayer extends React.PureComponent {
     )
     return (
       <div className={mainClasses}>
-        <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+        <Head>
+          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+        </Head>
         <div className='box is-paddingless is-radiusless'>
           <div id='waveform' />
           <div className='loading-message'><i className='fa fa-circle-o-notch fa-spin' /> Création du spectre en cours</div>
