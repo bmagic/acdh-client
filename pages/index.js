@@ -20,9 +20,6 @@ class HomePage extends React.Component {
         <div id='home-page'>
           <HomeHero />
           <section className='section'>
-            <p className='notification is-warning content has-text-centered'>
-              Ce site est actuellement en développement actif. Merci de ne pas tenir compte des dysfonctionnements pour le moment.
-            </p>
             <div className='container'>
               <SearchBar />
               <ProgramsList />
