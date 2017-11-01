@@ -7,7 +7,13 @@ import ProgramsList from 'containers/ProgramsList'
 import SearchBar from 'containers/SearchBar'
 import Pagination from 'containers/Pagination'
 
+import { loadPrograms } from 'actions/programs'
+
 class HomePage extends React.Component {
+  static getInitialProps ({store}) {
+    store.dispatch(loadPrograms())
+  }
+
   render () {
     return (
       <Layout>
