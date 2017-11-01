@@ -17,7 +17,7 @@ import {
 } from 'actions/user'
 import { loadProgramsSuccess, loadProgramsError } from 'actions/programs'
 import { loadProgramSuccess, loadProgramError, saveProgramSuccess, saveProgramError, deleteProgramSuccess, deleteProgramError } from 'actions/program'
-import { makeSearch } from 'selectors/programs'
+import { makeSearch, makePage } from 'selectors/programs'
 
 /**
  * GET USER SAGA
@@ -113,15 +113,15 @@ export function * userRegister () {
  */
 export function * getPrograms () {
   const search = yield select(makeSearch())
+  const page = yield select(makePage())
 
-  const requestURL = `${process.env.BACKEND_URL}/programs?search=${search}`
+  const requestURL = `${process.env.BACKEND_URL}/programs?search=${search}&page=${page}`
 
   try {
-    const program = yield call(request, requestURL, {
-      credentials: 'include',
-      qs: {search: search}
+    const result = yield call(request, requestURL, {
+      credentials: 'include'
     })
-    yield put(loadProgramsSuccess(fromJS(program)))
+    yield put(loadProgramsSuccess(fromJS(result)))
   } catch (err) {
     yield put(loadProgramsError(err))
   }

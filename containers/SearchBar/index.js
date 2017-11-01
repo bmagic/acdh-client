@@ -9,10 +9,8 @@ import { makeSearch } from 'selectors/programs'
 export class SearchBar extends React.PureComponent {
   render () {
     return (
-      <div className='container'>
-        <div className='search-bar field'>
-          <input type='text' className='input' value={this.props.search} placeholder='Rechercher une émission' onChange={this.props.onChange} />
-        </div>
+      <div className='search-bar field'>
+        <input type='text' className='input' value={this.props.search} placeholder='Rechercher une émission' onChange={this.props.onChange} />
       </div>
     )
   }

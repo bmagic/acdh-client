@@ -1,10 +1,12 @@
 import { fromJS } from 'immutable'
 
 const initialState = fromJS({
-  loading: false,
+  loading: null,
   error: false,
   data: false,
-  search: ''
+  search: '',
+  page: 0,
+  count: 0
 })
 
 function programsReducer (state = initialState, action) {
@@ -16,7 +18,8 @@ function programsReducer (state = initialState, action) {
     case 'LOAD_PROGRAMS_SUCCESS':
       return state
         .set('loading', false)
-        .set('data', action.programs)
+        .set('data', action.result.get('programs'))
+        .set('count', action.result.get('count'))
     case 'LOAD_PROGRAMS_ERROR':
       return state
         .set('error', action.error)
@@ -24,6 +27,9 @@ function programsReducer (state = initialState, action) {
     case 'SEARCH_CHANGE':
       return state
         .set('search', action.data)
+    case 'PAGE_CHANGE':
+      return state
+        .set('page', action.page)
     default:
       return state
   }

@@ -17,8 +17,20 @@ const makeLoading = () => createSelector(
   (programsState) => programsState.get('loading')
 )
 
+const makePage = () => createSelector(
+  selectPrograms,
+  (programsState) => programsState.get('page')
+)
+
+const makeCount = () => createSelector(
+  selectPrograms,
+  (programsState) => programsState.get('count')
+)
+
 export {
   makePrograms,
   makeSearch,
-  makeLoading
+  makeLoading,
+  makePage,
+  makeCount
 }

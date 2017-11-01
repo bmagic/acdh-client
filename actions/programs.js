@@ -1,13 +1,14 @@
-export function loadPrograms () {
+export function loadPrograms (page) {
   return {
-    type: 'LOAD_PROGRAMS'
+    type: 'LOAD_PROGRAMS',
+    page
   }
 }
 
-export function loadProgramsSuccess (programs) {
+export function loadProgramsSuccess (result) {
   return {
     type: 'LOAD_PROGRAMS_SUCCESS',
-    programs
+    result
   }
 }
 
@@ -22,5 +23,12 @@ export function searchChange (data) {
   return {
     type: 'SEARCH_CHANGE',
     data
+  }
+}
+
+export function pageChange (page) {
+  return {
+    type: 'PAGE_CHANGE',
+    page
   }
 }

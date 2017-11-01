@@ -5,12 +5,12 @@ import PropTypes from 'prop-types'
 
 import ProgramLine from 'components/ProgramLine'
 
-import { makePrograms, makeSearch, makeLoading } from 'selectors/programs'
+import { makePrograms, makeSearch, makeLoading, makePage } from 'selectors/programs'
 import { loadPrograms } from 'actions/programs'
 
 export class ProgramsList extends React.PureComponent {
   componentWillUpdate (nextProps) {
-    if (nextProps.search !== this.props.search) { this.props.onLoadPrograms() }
+    if ((nextProps.search !== this.props.search) || (nextProps.page !== this.props.page)) { this.props.onLoadPrograms() }
   }
 
   componentDidMount () {
@@ -24,8 +24,10 @@ export class ProgramsList extends React.PureComponent {
       })
 
       return (
-        <div className='container'>
-          {programLines}
+        <div className='programs-list'>
+          <div >
+            {programLines}
+          </div>
         </div>
       )
     } else {
@@ -41,13 +43,15 @@ ProgramsList.propTypes = {
   ]),
   onLoadPrograms: PropTypes.func,
   search: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  page: PropTypes.number
 }
 
 const mapStateToProps = createStructuredSelector({
   programs: makePrograms(),
   search: makeSearch(),
-  loading: makeLoading()
+  loading: makeLoading(),
+  page: makePage()
 })
 
 export function mapDispatchToProps (dispatch) {
