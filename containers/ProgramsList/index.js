@@ -13,26 +13,18 @@ export class ProgramsList extends React.PureComponent {
     if ((nextProps.search !== this.props.search) || (nextProps.page !== this.props.page)) { this.props.onLoadPrograms() }
   }
 
-  componentDidMount () {
-    this.props.onLoadPrograms()
-  }
-
   render () {
-    if (!this.props.loading && this.props.programs) {
-      const programLines = this.props.programs.map(function (program) {
-        return <ProgramLine key={program.get('_id')} id={program.get('_id')} title={program.get('title')} date={program.get('date')} url={program.get('url')} />
-      })
+    const programLines = this.props.programs.map(function (program) {
+      return <ProgramLine key={program.get('_id')} id={program.get('_id')} title={program.get('title')} date={program.get('date')} url={program.get('url')} />
+    })
 
-      return (
-        <div className='programs-list'>
-          <div >
-            {programLines}
-          </div>
+    return (
+      <div className='programs-list'>
+        <div >
+          {programLines}
         </div>
-      )
-    } else {
-      return <div>"Loading..."</div>
-    }
+      </div>
+    )
   }
 }
 
@@ -43,7 +35,6 @@ ProgramsList.propTypes = {
   ]),
   onLoadPrograms: PropTypes.func,
   search: PropTypes.string,
-  loading: PropTypes.bool,
   page: PropTypes.number
 }
 
