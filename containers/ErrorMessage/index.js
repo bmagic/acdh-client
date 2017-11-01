@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { createStructuredSelector } from 'reselect'
 import PropTypes from 'prop-types'
+import Head from 'next/head'
 
 import { resetError } from 'actions/global'
 import { makeError } from 'selectors/global'
@@ -30,8 +31,9 @@ export class ErrorMessage extends React.PureComponent {
       setTimeout(this.props.onResetError, 5000)
       return (
         <div className='error-message column is-one-quarter'>
-          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-
+          <Head>
+            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          </Head>
           <div onClick={this.props.onResetError} className='notification is-danger'>
             <button className='delete' />
             {ErrorMessage.translateErrorMessage(this.props.error.message)}
