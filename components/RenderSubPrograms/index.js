@@ -25,6 +25,7 @@ const RenderSubPrograms = ({ fields }) => (
                 <option value='' />
                 <option value='story'>Le récit</option>
                 <option value='story_unheard'>L'histoire inouie</option>
+                <option value='video'>Vidéo</option>
               </Field>
             </div>
           </div>

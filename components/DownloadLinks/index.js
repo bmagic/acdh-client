@@ -10,6 +10,9 @@ const DownloadLinks = (props) => {
       case 'story':
         name = 'Le récit'
         break
+      case 'video':
+        name = 'Vidéo'
+        break
       default:
         name = link.get('type')
     }
