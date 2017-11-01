@@ -27,6 +27,7 @@ function programsReducer (state = initialState, action) {
     case 'SEARCH_CHANGE':
       return state
         .set('search', action.data)
+        .set('page', 0)
     case 'PAGE_CHANGE':
       return state
         .set('page', action.page)
