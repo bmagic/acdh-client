@@ -54,6 +54,17 @@ function userReducer (state = initialState, action) {
       return state
         .set('error', action.error)
         .set('loading', false)
+    case 'DELETE_USER':
+      return state
+        .set('loading', true)
+    case 'DELETE_USER_SUCCESS':
+      return state
+        .set('loading', false)
+        .set('data', false)
+    case 'DELETE_USER_ERROR':
+      return state
+        .set('error', action.error)
+        .set('loading', false)
     default:
       return state
   }

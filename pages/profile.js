@@ -8,6 +8,7 @@ import Moment from 'react-moment'
 import Layout from 'components/Layout'
 import Meta from 'components/Meta'
 import Title from 'components/Title'
+import DeleteUserButton from 'containers/DeleteUserButton'
 
 import { makeEmail, makeLastLogin } from 'selectors/user'
 
@@ -20,12 +21,18 @@ class ProfilePage extends React.Component {
           <Title title='Mes informations' />
           <section className='section'>
             <div className='container'>
-              <ul>
-                <li>Email : {this.props.email}</li>
-                <li>Dernière connexion <Moment locale='fr' fromNow unix>{Math.trunc(this.props.lastLogin / 1000)}</Moment>
-                </li>
-              </ul>
-              <div className='notification is-warning'><i className='fa fa-exclamation-triangle' /> Ajouter ici la possibilité de changer son mot de passe et de supprimer son compte</div>
+              <div className='content'>
+                <ul>
+                  <li>
+                    Email : {this.props.email}
+                  </li>
+                  <li>
+                    Dernière connexion <Moment locale='fr' fromNow unix>{Math.trunc(this.props.lastLogin / 1000)}</Moment>
+                  </li>
+                </ul>
+              </div>
+              <hr />
+              <DeleteUserButton />
             </div>
           </section>
         </div>

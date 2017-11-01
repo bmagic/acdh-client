@@ -13,7 +13,9 @@ import {
   loginSuccess,
   loginError,
   registerSuccess,
-  registerError
+  registerError,
+  deleteError,
+  deleteSuccess
 } from 'actions/user'
 import { loadProgramsSuccess, loadProgramsError } from 'actions/programs'
 import { loadProgramSuccess, loadProgramError, saveProgramSuccess, saveProgramError, deleteProgramSuccess, deleteProgramError } from 'actions/program'
@@ -106,6 +108,28 @@ export function * register (action) {
 
 export function * userRegister () {
   yield takeLatest('REGISTER_USER', register)
+}
+
+/**
+ * DELETE USER  SAGA
+ */
+export function * delete_ () {
+  try {
+    const requestURL = `${process.env.BACKEND_URL}/users`
+
+    yield call(request, requestURL, {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+    yield put(deleteSuccess())
+    yield Router.push('/')
+  } catch (err) {
+    yield put(deleteError(err))
+  }
+}
+
+export function * userDelete () {
+  yield takeLatest('DELETE_USER', delete_)
 }
 
 /**
@@ -221,6 +245,7 @@ export default function * root () {
   yield fork(userLogout)
   yield fork(userLogin)
   yield fork(userRegister)
+  yield fork(userDelete)
   yield fork(programsLoad)
   yield fork(programLoad)
   yield fork(programSave)

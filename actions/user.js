@@ -79,3 +79,22 @@ export function registerError (error) {
     error
   }
 }
+
+export function delete_ () {
+  return {
+    type: 'DELETE_USER'
+  }
+}
+
+export function deleteSuccess () {
+  return {
+    type: 'DELETE_USER_SUCCESS'
+  }
+}
+
+export function deleteError (error) {
+  return {
+    type: 'DELETE_USER_ERROR',
+    error
+  }
+}
