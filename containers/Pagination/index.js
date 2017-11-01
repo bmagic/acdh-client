@@ -29,7 +29,7 @@ export class Pagination extends React.PureComponent {
     if (this.props.loading === null) return null
     else {
       return (
-        <nav className='pagination is-centered' role='navigation' aria-label='pagination'>
+        <nav className='acdh pagination is-centered' role='navigation' aria-label='pagination'>
           <Head>
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
           </Head>
