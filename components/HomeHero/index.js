@@ -22,7 +22,7 @@ const HomeHero = () => (
             </div>
             <div className='column'>
               <p className='notification is-warning content has-text-centered'>
-                Ce site est actuellement en développement actif.<br />Pour plus d'information sur l'évolution du site consultez <Link href='/roadmap'><a>la feuille de route</a></Link>
+                Ce site est actuellement en développement actif.<br />Pour plus d'informations sur son évolution, consultez <Link href='/roadmap'><a>la feuille de route</a></Link>
               </p>
             </div>
           </div>
