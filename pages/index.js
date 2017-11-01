@@ -20,7 +20,7 @@ class HomePage extends React.Component {
             <div className='container'>
               <SearchBar />
               <ProgramsList />
-              <Pagination pageCount={3} />
+              <Pagination pageCount={10} />
             </div>
           </section>
         </div>
