@@ -33,7 +33,7 @@ let LoginForm = (props) => {
             <div className='field'>
               <p className='control'>
                 <button disabled={invalid} type='submit' className='button is-dark' onClick={handleSubmit}>
-                  S'enregistrer
+                  Connexion
                 </button>
               </p>
             </div>
