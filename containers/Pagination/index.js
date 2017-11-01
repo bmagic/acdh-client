@@ -28,7 +28,7 @@ export class Pagination extends React.PureComponent {
       return (
         <nav className='pagination is-centered' role='navigation' aria-label='pagination'>
           <button className='pagination-previous' disabled={this.props.page === 0} onClick={this.handlePrevClick}>Previous</button>
-          <div className='pagination-list'>{this.props.page + 1} / {Math.round(this.props.totalCount / this.props.pageCount + 1)}</div>
+          <div className='pagination-list'>{this.props.page + 1} / {Math.trunc(this.props.totalCount / this.props.pageCount + 1)}</div>
           <button className='pagination-next' disabled={this.props.page + 1 >= this.props.totalCount / this.props.pageCount} onClick={this.handleNextClick}>Next page</button>
         </nav>
       )
