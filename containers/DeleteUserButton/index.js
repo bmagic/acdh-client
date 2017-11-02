@@ -52,7 +52,7 @@ export class DeleteUserButton extends React.PureComponent {
 }
 
 DeleteUserButton.propTypes = {
-  email: PropTypes.func,
+  email: PropTypes.string,
   onDeleteUser: PropTypes.func
 }
 
