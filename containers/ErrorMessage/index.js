@@ -16,13 +16,13 @@ export class ErrorMessage extends React.PureComponent {
       case 'Failed to fetch':
         return 'Erreur : Impossible de contacter le serveur'
       case 'Unauthorized':
-        return 'Impossible de se connecter, vérifiez votre adresse email et votre mot de passe'
+        return 'Impossible de vous connecter, vérifiez votre adresse email et mot de passe ou que votre compte a bien été activé'
       case 'Conflict':
         return 'Cet email existe déja dans notre base.'
       case 'Forbidden':
         return 'Vous n\'avez pas la permission d\'effectuer cette action'
       default:
-        return 'Désolé une erreur inconnue est survenue et elle dit : ' + message
+        return 'Désolé une erreur est survenue et elle dit : ' + message
     }
   }
 

@@ -66,16 +66,36 @@ export function register (data) {
   }
 }
 
-export function registerSuccess (user) {
+export function registerSuccess () {
   return {
-    type: 'REGISTER_USER_SUCCESS',
-    user
+    type: 'REGISTER_USER_SUCCESS'
   }
 }
 
 export function registerError (error) {
   return {
     type: 'REGISTER_USER_ERROR',
+    error
+  }
+}
+
+export function validate (data) {
+  return {
+    type: 'VALIDATE_USER',
+    data
+  }
+}
+
+export function validateSuccess (user) {
+  return {
+    type: 'VALIDATE_USER_SUCCESS',
+    user
+  }
+}
+
+export function validateError (error) {
+  return {
+    type: 'VALIDATE_USER_ERROR',
     error
   }
 }

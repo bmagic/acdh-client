@@ -58,12 +58,12 @@ class RoadmapPage extends React.Component {
                         <ul>
                           <li>Création du site de base <i className='fa fa-check' /></li>
                           <li>Recherche texte simple <i className='fa fa-check' /></li>
-                          <li>Gestion des utilisateurs (En cours)</li>
+                          <li>Gestion des utilisateurs <i className='fa fa-check' /></li>
                         </ul>
                       </div>
                     </li>
                     <li className='timeline-item'>
-                      <div className='timeline-marker is-icon'>
+                      <div className='timeline-marker is-icon is-primary'>
                         <i className='fa fa-flag' />
                       </div>
                       <div className='timeline-content'>

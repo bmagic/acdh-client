@@ -49,8 +49,18 @@ function userReducer (state = initialState, action) {
     case 'REGISTER_USER_SUCCESS':
       return state
         .set('loading', false)
-        .set('data', action.user)
     case 'REGISTER_USER_ERROR':
+      return state
+        .set('error', action.error)
+        .set('loading', false)
+    case 'VALIDATE_USER':
+      return state
+        .set('loading', true)
+    case 'VALIDATE_USER_SUCCESS':
+      return state
+        .set('loading', false)
+        .set('data', action.user)
+    case 'VALIDATE_USER_ERROR':
       return state
         .set('error', action.error)
         .set('loading', false)

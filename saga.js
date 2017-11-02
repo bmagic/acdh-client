@@ -14,6 +14,8 @@ import {
   loginError,
   registerSuccess,
   registerError,
+  validateSuccess,
+  validateError,
   deleteError,
   deleteSuccess
 } from 'actions/user'
@@ -29,6 +31,7 @@ export function * getUser () {
     const requestURL = `${process.env.BACKEND_URL}/users/profile`
 
     const user = yield call(request, requestURL, {credentials: 'include'})
+
     yield put(userLoaded(fromJS(user)))
   } catch (err) {
     yield put(userLoadingError(err))
@@ -92,6 +95,33 @@ export function * register (action) {
     const requestURL = `${process.env.BACKEND_URL}/users/register`
     let data = action.data.toJS()
 
+    yield call(request, requestURL, {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: qs.stringify(data)
+    })
+    yield put(registerSuccess())
+    yield Router.push('/validation')
+  } catch (err) {
+    yield put(registerError(err))
+  }
+}
+
+export function * userRegister () {
+  yield takeLatest('REGISTER_USER', register)
+}
+
+/**
+ * VALIDATE SAGA
+ */
+export function * validate (action) {
+  try {
+    const requestURL = `${process.env.BACKEND_URL}/users/validate`
+    let data = action.data.toJS()
+
     const user = yield call(request, requestURL, {
       credentials: 'include',
       method: 'POST',
@@ -100,14 +130,15 @@ export function * register (action) {
       },
       body: qs.stringify(data)
     })
-    yield put(registerSuccess(fromJS(user)))
+    yield put(validateSuccess(fromJS(user)))
+    yield Router.push('/')
   } catch (err) {
-    yield put(registerError(err))
+    yield put(validateError(err))
   }
 }
 
-export function * userRegister () {
-  yield takeLatest('REGISTER_USER', register)
+export function * userValidate () {
+  yield takeLatest('VALIDATE_USER', validate)
 }
 
 /**
@@ -245,6 +276,7 @@ export default function * root () {
   yield fork(userLogout)
   yield fork(userLogin)
   yield fork(userRegister)
+  yield fork(userValidate)
   yield fork(userDelete)
   yield fork(programsLoad)
   yield fork(programLoad)

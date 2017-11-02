@@ -25,7 +25,7 @@ let LoginForm = (props) => {
       <div className='level'>
         <div className='level-left'>
           <div className='level-item'>
-            <span>Vous n'avez pas de compte, <Link href='/register'><a>créez en un.</a></Link></span>
+            <span><Link href={'/register'}><a>Créez un compte</a></Link> / <Link href={'/validation'}><a>Activez votre compte</a></Link></span>
           </div>
         </div>
         <div className='level-right'>
