@@ -19,11 +19,11 @@ class FAQPage extends React.Component {
                 <h3>Qu'est-ce que c'est : Au cœur de l'histoire ?</h3>
                 <p>
                   Au cœur de l'histoire est une émission radio d'histoire diffusée sur Europe 1 depuis 2011 et présentée par Franck Ferrand.<br />
-                  Vous trouverez plus d'information sur la page <a href='https://fr.wikipedia.org/wiki/Au_c%C5%93ur_de_l%27histoire' >wikipedia</a> de l'émission.
+                  Vous trouverez plus d'informations sur la page <a href='https://fr.wikipedia.org/wiki/Au_c%C5%93ur_de_l%27histoire' >wikipedia</a> de l'émission.
                 </p>
                 <h3>Pourquoi ai-je fait ce site ?</h3>
                 <p>
-                  Etant un auditeur de l'émission j'ai souhaité il y a quelques temps pouvoir réécouter une émission passées. En cherchant un peu je suis tomber sur <a href='http://www.europe1.fr/emissions/au-coeur-de-l-histoire' >le site officiel d'Europe 1</a>.<br />
+                  Etant un auditeur de l'émission j'ai souhaité il y a quelques temps pouvoir réécouter une émission passée. En cherchant un peu je suis tombé sur <a href='http://www.europe1.fr/emissions/au-coeur-de-l-histoire' >le site officiel d'Europe 1</a>.<br />
                   Cependant celui-ci est malheureusement dépourvu de fonctionnalités de recherche, j'ai donc décider de créer ce site afin de palier à ce manque.<br />
                   Ce site n'a aucune vocation commercial et restera toujours gratuit.
                 </p>
@@ -47,7 +47,7 @@ class FAQPage extends React.Component {
                 <h3>Comment pouvez vous m'aider ?</h3>
                 <h4>Vous &ecirc;tes un spécialiste de l'archive</h4>
                 <p>
-                  J'ai besoin d'explications afin de pouvoir définir les informations à faire remonter dans la recherche des émissions. Pour faire simple je n'ai aucune connaissance dans les techniques d'archivage qui existe à ce jour.
+                  J'ai besoin d'explications afin de pouvoir définir les informations à faire remonter dans la recherche des émissions. Pour faire simple je n'ai aucune connaissance dans les techniques d'archivage qui existent à ce jour.
                 </p>
                 <h4>Vous &ecirc;tes développeur</h4>
                 <p>
