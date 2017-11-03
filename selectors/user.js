@@ -22,9 +22,15 @@ const makeLoading = () => createSelector(
   (userState) => userState.get('loading')
 )
 
+const makeViewList = () => createSelector(
+  selectUser,
+  (userState) => userState.getIn(['data', 'viewList'])
+)
+
 export {
   makeEmail,
   makeLastLogin,
   makeAdmin,
-  makeLoading
+  makeLoading,
+  makeViewList
 }

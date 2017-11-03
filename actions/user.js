@@ -118,3 +118,45 @@ export function deleteError (error) {
     error
   }
 }
+
+export function addView (id) {
+  return {
+    type: 'ADD_VIEW_USER',
+    id
+  }
+}
+
+export function addViewSuccess (data) {
+  return {
+    type: 'ADD_VIEW_USER_SUCCESS',
+    data
+  }
+}
+
+export function addViewError (error) {
+  return {
+    type: 'ADD_VIEW_USER_ERROR',
+    error
+  }
+}
+
+export function deleteView (id) {
+  return {
+    type: 'DELETE_VIEW_USER',
+    id
+  }
+}
+
+export function deleteViewSuccess (data) {
+  return {
+    type: 'DELETE_VIEW_USER_SUCCESS',
+    data
+  }
+}
+
+export function deleteViewError (error) {
+  return {
+    type: 'DELETE_VIEW_USER_ERROR',
+    error
+  }
+}

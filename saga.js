@@ -17,7 +17,11 @@ import {
   validateSuccess,
   validateError,
   deleteError,
-  deleteSuccess
+  deleteSuccess,
+  addViewSuccess,
+  addViewError,
+  deleteViewSuccess,
+  deleteViewError
 } from 'actions/user'
 import { loadProgramsSuccess, loadProgramsError } from 'actions/programs'
 import { loadProgramSuccess, loadProgramError, saveProgramSuccess, saveProgramError, deleteProgramSuccess, deleteProgramError } from 'actions/program'
@@ -269,6 +273,47 @@ export function * programDelete () {
 }
 
 /**
+ * ADD VIEW LIST SAGA
+ */
+export function * postView (action) {
+  let requestURL = `${process.env.BACKEND_URL}/users/views/${action.id}`
+  try {
+    const viewList = yield call(request, requestURL, {
+      credentials: 'include',
+      method: 'POST'
+    })
+    yield put(addViewSuccess(fromJS(viewList)))
+  } catch (err) {
+    yield put(addViewError(err))
+  }
+}
+
+export function * userAddView () {
+  yield takeLatest('ADD_VIEW_USER', postView)
+}
+
+/**
+ * DELETE VIEW LIST SAGA
+ */
+export function * deleteView (action) {
+  let requestURL = `${process.env.BACKEND_URL}/users/views/${action.id}`
+  try {
+    const viewList = yield call(request, requestURL, {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+    console.log(viewList)
+    yield put(deleteViewSuccess(fromJS(viewList)))
+  } catch (err) {
+    yield put(deleteViewError(err))
+  }
+}
+
+export function * deleteAddView () {
+  yield takeLatest('DELETE_VIEW_USER', deleteView)
+}
+
+/**
  * Root saga manages watcher lifecycle
  */
 export default function * root () {
@@ -282,4 +327,6 @@ export default function * root () {
   yield fork(programLoad)
   yield fork(programSave)
   yield fork(programDelete)
+  yield fork(userAddView)
+  yield fork(deleteAddView)
 }

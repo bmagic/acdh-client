@@ -75,6 +75,14 @@ function userReducer (state = initialState, action) {
       return state
         .set('error', action.error)
         .set('loading', false)
+    case 'DELETE_VIEW_USER_SUCCESS':
+    case 'ADD_VIEW_USER_SUCCESS':
+      return state
+        .setIn(['data', 'viewList'], action.data)
+    case 'ADD_VIEW_USER_ERROR':
+    case 'DELETE_VIEW_USER_ERROR':
+      return state
+        .set('error', action.error)
     default:
       return state
   }

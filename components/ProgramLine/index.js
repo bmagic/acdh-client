@@ -6,6 +6,7 @@ import Head from 'next/head'
 import generateUrl from 'utils/urlGenerator'
 
 import EditButton from 'containers/EditButton'
+import ViewButton from 'containers/ViewButton'
 
 import stylesheet from './style.scss'
 
@@ -23,6 +24,9 @@ const ProgramLine = (props) => (
       </div>
       <div className='column is-narrow'>
         <EditButton id={props.id} />
+      </div>
+      <div className='column is-narrow'>
+        <ViewButton id={props.id} />
       </div>
       <div className='column  is-narrow'>
         <a href={generateUrl(props.url)}><i className='fa fa-download' /></a>
