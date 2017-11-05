@@ -13,6 +13,9 @@ const DownloadLinks = (props) => {
       case 'video':
         name = 'Vidéo'
         break
+      case 'focus':
+        name = 'Le focus'
+        break
       default:
         name = link.get('type')
     }
