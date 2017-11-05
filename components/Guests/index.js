@@ -8,7 +8,7 @@ const Guests = (props) => {
     })
     return (
       <div className='guests content'>
-        <h4>{props.guests.size === 1 ? 'Invité' : 'Invités'} :</h4>
+        <h4>{props.guests.size === 1 ? 'Invité·e' : 'Invité·e·s'} :</h4>
         <ul>
           {guests}
         </ul>
